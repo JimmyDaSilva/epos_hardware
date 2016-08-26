@@ -4,7 +4,7 @@
 namespace epos_hardware {
 
 EposHardware::EposHardware(ros::NodeHandle& nh, ros::NodeHandle& pnh, const std::vector<std::string>& motor_names)
-  : epos_manager_(asi, avi, api, nh, pnh, motor_names) {
+  : epos_manager_(asi, avi, api, aei, nh, pnh, motor_names) {
 
   // TODO throw exception or something
   try {
@@ -26,6 +26,7 @@ EposHardware::EposHardware(ros::NodeHandle& nh, ros::NodeHandle& pnh, const std:
   registerInterface(&asi);
   registerInterface(&avi);
   registerInterface(&api);
+  registerInterface(&aei);
 
   std::string urdf_string;
   nh.getParam("robot_description", urdf_string);
@@ -94,6 +95,8 @@ void EposHardware::write() {
     robot_transmissions.get<transmission_interface::JointToActuatorVelocityInterface>()->propagate();
   if(robot_transmissions.get<transmission_interface::JointToActuatorPositionInterface>())
     robot_transmissions.get<transmission_interface::JointToActuatorPositionInterface>()->propagate();
+  if(robot_transmissions.get<transmission_interface::JointToActuatorEffortInterface>())
+    robot_transmissions.get<transmission_interface::JointToActuatorEffortInterface>()->propagate();
   epos_manager_.write();
 }
 
