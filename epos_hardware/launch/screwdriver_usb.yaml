@@ -4,9 +4,10 @@
 screwdriver_actuator:
   actuator_name: 'screwdriver_actuator'
   serial_number: '0x602084006486'
-  communication_protocol: 'USB' # RS232 or USB
-  operation_mode: 'profile_velocity'
+  communication_protocol: 'USB'
+  operation_mode: 'current'
   clear_faults: true
+  torque_constant: 9.06
 
   motor:
     type: 1
@@ -18,19 +19,3 @@ screwdriver_actuator:
 
   sensor:
     type: 0
-    #hall_sensor: +
-      #inverted_polarity: true
-
-  #safety:
-    #max_following_error: 200000
-    #max_profile_velocity: 5000
-    #max_acceleration: 15000
-
-  #position_profile:
-    #velocity: 4000
-    #acceleration: 8000
-    #deceleration: 9000
-
-  #velocity_profile:
-    #acceleration: 8000
-    #deceleration: 9000

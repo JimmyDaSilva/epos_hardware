@@ -1,8 +1,8 @@
 # Time in seconds
 # Current in amps
 # position, velocity, and acceleration in device units
-my_joint_actuator:
-  actuator_name: 'test_joint_actuator'
+gripper_actuator:
+  actuator_name: 'gripper_joint_actuator'
   serial_number: '0x602084006486'
   communication_protocol: 'RS232' # or USB
   operation_mode: 'profile_position'
