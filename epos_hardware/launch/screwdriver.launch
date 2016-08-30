@@ -4,8 +4,8 @@
     <rosparam command="load" file="$(find epos_hardware)/launch/screwdriver.yaml" />
   </node>
 
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller velocity_controller"/>
-  <param name="effort_controller/type" value="velocity_controllers/JointVelocityController" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller effort_controller"/>
+  <param name="effort_controller/type" value="effort_controllers/JointEffortController" />
   <param name="effort_controller/joint" value="screwdriver_joint" />
   <param name="joint_state_controller/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller/publish_rate" value="50" />
