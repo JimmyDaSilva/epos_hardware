@@ -22,7 +22,7 @@
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="gripper_joint_actuator">
-      <mechanicalReduction>22</mechanicalReduction>
+      <mechanicalReduction>14</mechanicalReduction>
     </actuator>
   </transmission>
 </robot>
